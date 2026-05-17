@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { headers } from "next/headers";
 import styles from "./layout.module.scss"; // SCSS module import
 import "./globals.css";
 import Sidebar from "@/layouts/sidebar/Sidebar.layout";
 import NavigationPane from "@/layouts/navigationPane/NavigationPane.layout";
 import ReactQueryProvider from "@/providers/ReactQueryProvider";
-import ParallaxParticles from "@/components/ParallaxParticles.component"; 
+import ParallaxParticles from "@/components/ParallaxParticles.component";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,11 +23,15 @@ export const metadata: Metadata = {
   description: "Showcasing my skills, projects, and resume",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Reading headers opts every page into dynamic (per-request) rendering.
+  // This allows Next.js to apply the per-request nonce from middleware
+  // to the inline scripts it generates for React hydration.
+  await headers();
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
