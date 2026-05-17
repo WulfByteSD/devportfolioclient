@@ -5,10 +5,7 @@ import "./globals.css";
 import Sidebar from "@/layouts/sidebar/Sidebar.layout";
 import NavigationPane from "@/layouts/navigationPane/NavigationPane.layout";
 import ReactQueryProvider from "@/providers/ReactQueryProvider";
-import ParallaxParticles from "@/components/ParallaxParticles.component";
-import WaveGridBackground from "@/components/WaveGridBackground.component";
-import NebulaeNoise from "@/components/NebulaeNoise.component";
-import BrushstrokeBackground from "@/components/BrushstrokeBackground.component";
+import ParallaxParticles from "@/components/ParallaxParticles.component"; 
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
